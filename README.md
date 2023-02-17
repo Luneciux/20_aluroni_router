@@ -17,8 +17,8 @@ To start the application in the localhost:3000
 # Technologies
 
 The timer was made with
-- React and Typescript
-- UUID for Key biding
-- Css Modules and SASS
+- Router DOM
+- Organizing Not Found and UX Routes
+- Finishig the landing page
 
 # Color pallet
