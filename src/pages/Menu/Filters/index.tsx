@@ -14,28 +14,28 @@ interface FilterProps {
 
 function Filters ( {filter, setFilter} : FilterProps ) {
 
-    function selectFilter(option : Ioption){
-        if(filter === option.id) return setFilter(null);
-        return setFilter(option.id);
-    }
+  function selectFilter(option : Ioption){
+    if(filter === option.id) return setFilter(null);
+    return setFilter(option.id);
+  }
 
-    return (
-        <div className={styles.filtersStyle}>
-            {filters.map((option) => (
-                <button 
-                    key={option.id}
-                    onClick={() => selectFilter(option)}
+  return (
+    <div className={styles.filtersStyle}>
+      {filters.map((option) => (
+        <button 
+          key={option.id}
+          onClick={() => selectFilter(option)}
 
-                    className={classNames({
-                            [styles.filtersStyle__filter]: true,
-                            [styles["filtersStyle__filter--active"]]: filter === option.id,
-                    })}
-                >
-                    {option.label}
-                </button>    
-            ))}
-        </div>
-    )
+          className={classNames({
+            [styles.filtersStyle__filter]: true,
+            [styles['filtersStyle__filter--active']]: filter === option.id,
+          })}
+        >
+          {option.label}
+        </button>    
+      ))}
+    </div>
+  );
 }
 
 export default Filters;

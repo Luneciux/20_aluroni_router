@@ -10,46 +10,46 @@ interface OrderProps {
 }
 
 function Order ({ order, setOrder } : OrderProps) {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const orderName = order && options.find(option => option.value === order)?.nome;
+  const orderName = order && options.find(option => option.value === order)?.nome;
 
-    return (
+  return (
 
-        <button 
-            className={classNames({
-                [styles.orderStyle]: true,
-                [styles["orderStyle--active"]]: order !== "",
-            })} 
-            onClick={() => setOpen(!open)}
-            onBlur={() => setOpen(false)}
-        >
+    <button 
+      className={classNames({
+        [styles.orderStyle]: true,
+        [styles['orderStyle--active']]: order !== '',
+      })} 
+      onClick={() => setOpen(!open)}
+      onBlur={() => setOpen(false)}
+    >
 
-            <span>{orderName || "Ordenar Por"}</span>
+      <span>{orderName || 'Ordenar Por'}</span>
 
-            {open ? < MdKeyboardArrowUp size={20}/> : < MdKeyboardArrowDown size={20}/>}
+      {open ? < MdKeyboardArrowUp size={20}/> : < MdKeyboardArrowDown size={20}/>}
 
+      <div 
+        className={classNames({
+          [styles.orderStyle__options]: true,
+          [styles['orderStyle__options--active']]: open,
+        })}
+      >
+        {
+          options.map(option => (
             <div 
-                className={classNames({
-                    [styles.orderStyle__options]: true,
-                    [styles['orderStyle__options--active']]: open,
-                })}
+              key={option.value}
+              className={styles.orderStyle__option} 
+              onClick={() => {setOrder(option.value);}}                    
             >
-                {
-                    options.map(option => (
-                        <div 
-                            key={option.value}
-                            className={styles.orderStyle__option} 
-                            onClick={() => {setOrder(option.value)}}                    
-                        >
-                            {option.nome}
-                        </div>
-                    ))
-                }
+              {option.nome}
             </div>
+          ))
+        }
+      </div>
 
-        </button>
-    )
+    </button>
+  );
 }
 
 export default Order;
