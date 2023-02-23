@@ -1,4 +1,3 @@
-import {ReactComponent as Logo} from 'assets/images/logo.svg';
 import { useState } from 'react';
 
 import Search from './Search';
@@ -16,9 +15,6 @@ function Menu() {
 
   return (
     <main>
-      <nav className={styles.menuStyle}>
-        <Logo />
-      </nav>
       <header className={styles.headerStyle}>
         <div className={styles.headerStyle__text}>
                     Massas & Restaurante
